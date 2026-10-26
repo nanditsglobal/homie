@@ -69,7 +69,7 @@ Routes: `/`, `/services/{brand-strategy|product-design|communication-multimedia|
   field by field, to `caseStudyPlaceholder`. Optional fields: `videos` (replaces the hero image),
   `video` (link button), `brand` (BrandIdentity section), `quote: null` hides the quote, `sources` list.
 - Written from Hammad's brief plus public sources (each page lists them): Dr. iQ (AT Medics), Abode
-  (incl. brand identity from the Abode brand guide), Iylus, talkRx (MTBC/CareCloud e-prescribing), talkPHR (MTBC patient portal), talkCheckin (patient check-in tablet app; years unconfirmed), Breeze (CareCloud patient app; Hammad's role and years still to confirm — Breeze was CareCloud Corp's product, launched 2017).
+  (incl. brand identity from the Abode brand guide), Iylus, talkRx (MTBC/CareCloud e-prescribing), talkPHR (MTBC patient portal), talkCheckin (patient check-in tablet app; years unconfirmed), Breeze (CareCloud patient app, launched 2017; Hammad was Senior product designer — his years on it are unconfirmed and don't fit the CareCloud 2010–2015 experience entry).
   Only sourced facts or facts Hammad gave — keep it that way.
 - Artwork has no content yet.
 - App case studies can show their app icon on the portfolio tile: add `icon: '/img/icons/<slug>.png'` to the

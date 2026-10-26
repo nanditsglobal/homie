@@ -543,8 +543,8 @@ export const caseStudies = [
     outcome: 'The waiting room on a phone: Breeze lets patients check in, complete their forms and pay before they arrive — so the visit starts with care, not paperwork.',
     facts: {
       client: 'CareCloud, launched with First Data',
-      timeline: '[Your years on Breeze] · launched Oct 2017',
-      role: '[Your role on Breeze]',
+      timeline: 'Launched Oct 2017 · CareCloud',
+      role: 'Senior product designer',
       scope: 'Patient app for iOS, Android and web; check-in, forms, payments',
     },
     problem: [
