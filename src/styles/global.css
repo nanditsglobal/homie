@@ -46,7 +46,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 a { color: var(--ink); }
 a:hover { color: var(--ink-strong); }
 ul, ol { padding: 0; list-style: none; }
