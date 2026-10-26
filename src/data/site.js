@@ -267,6 +267,20 @@ export const quotes = [
   { text: 'He possesses an extraordinary blend of creativity, strategic thinking, and leadership skills, inspiring the team to consistently deliver outstanding results.', name: 'Junaid Ahmad Sheikh', title: 'Senior UX Designer, Ooredoo Qatar' },
   { text: 'A rare creative manager who has this ability to deal with conflicting projects in high-pressure situations with so much easiness.', name: 'Bilawal Shah', title: 'Founder, Bilzimo' },
 ]
+// ---------- Contact / project enquiry ----------
+// Service options come from `services` (title + points); `prompts` tailors the message box to each.
+export const contact = {
+  title: 'Have a brand or product that needs direction?',
+  intro: 'Tell me what you’re working on. Pick the service closest to your need and I’ll reply with next steps.',
+  prompts: {
+    'brand-strategy': 'What does the business do, who is it for, and what isn’t working about the brand today?',
+    'product-design': 'What is the product, who uses it, and where are users getting stuck?',
+    'communication-multimedia': 'What do you need to communicate, to whom, and in which formats?',
+    'art-direction': 'What is the campaign or project, and where do you need creative leadership?',
+    'ai-prototyping': 'What idea do you want to test, or which team do you want using AI well?',
+  },
+  timelines: ['As soon as possible', 'In 1–3 months', 'In 3+ months', 'Just exploring'],
+}
 
 // Keep in sync with the FAQPage structured data in index.html
 export const faq = [
