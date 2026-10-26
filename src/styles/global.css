@@ -387,6 +387,12 @@ section[id] { scroll-margin-top: 96px; }
 .tile__media { position: relative; border-radius: 6px; overflow: hidden; }
 .tile__media img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: var(--bg-tile); transition: transform .6s var(--ease); }
 .tile:hover .tile__media img { transform: scale(1.03); }
+/* App case studies: the app icon as the tile, or as a chip over the photo */
+.tile__media--app { display: grid; place-items: center; aspect-ratio: 1 / 1; background: radial-gradient(circle at 50% 40%, var(--bg-raised), var(--bg-tile)); border: 1px solid var(--line); }
+.tile__media .tile__app-icon { width: 38%; height: auto; aspect-ratio: 1 / 1; border-radius: 22%; object-fit: cover; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); }
+.tile:hover .tile__media .tile__app-icon { transform: scale(1.05); }
+.tile__media .tile__icon-chip { position: absolute; left: 12px; bottom: 12px; width: 56px; height: 56px; aspect-ratio: 1 / 1; border-radius: 22%; object-fit: cover; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); }
+.tile:hover .tile__media .tile__icon-chip { transform: none; }
 .tile__badge {
   position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 999px;
   font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;

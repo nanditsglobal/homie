@@ -6,11 +6,15 @@ import Placeholder from './Placeholder.jsx'
 const INITIAL = 8
 
 function Tile({ item }) {
+  // App case studies carry their app icon: a corner chip over the photo, or the whole tile when there's no photo
   const media = (
-    <div className="tile__media">
+    <div className={`tile__media ${item.icon && !item.img ? 'tile__media--app' : ''}`}>
       {item.img
         ? <img src={item.img} alt={item.alt || item.title} loading="lazy" width="800" height="800" />
-        : <Placeholder label={`THUMBNAIL — ${item.title}`} ratio="1 / 1" />}
+        : item.icon
+          ? <img className="tile__app-icon" src={item.icon} alt={`${item.title} app icon`} loading="lazy" width="180" height="180" />
+          : <Placeholder label={`THUMBNAIL — ${item.title}`} ratio="1 / 1" />}
+      {item.img && item.icon && <img className="tile__icon-chip" src={item.icon} alt="" loading="lazy" width="56" height="56" />}
       {item.featured && <span className="tile__badge">Case study</span>}
     </div>
   )

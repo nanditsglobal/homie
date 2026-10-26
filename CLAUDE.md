@@ -72,6 +72,8 @@ Routes: `/`, `/services/{brand-strategy|product-design|communication-multimedia|
   (incl. brand identity from the Abode brand guide), Iylus, talkRx (MTBC/CareCloud e-prescribing), talkPHR (MTBC patient portal), talkCheckin (patient check-in tablet app; years unconfirmed).
   Only sourced facts or facts Hammad gave — keep it that way.
 - Artwork has no content yet.
+- App case studies can show their app icon on the portfolio tile: add `icon: '/img/icons/<slug>.png'` to the
+  `portfolio` item (square PNG, 180px+). No photo → the icon fills the tile; with a photo → a corner chip.
 
 ## Open items (need Hammad's input)
 
@@ -79,6 +81,7 @@ Routes: `/`, `/services/{brand-strategy|product-design|communication-multimedia|
 - Dr. iQ: the "#2 UK healthcare app" result is unverified — needs a screenshot or link.
 - Abode: real titles for the four videos; confirm the 2016–2021 timeline and the Zigron-reported 62→94% onboarding figure.
 - Iylus: confirm timeline (2020–2021) and whether the app was Hammad's; any real metrics.
+- App icons for Dr. iQ, Abode, talkRx, talkPHR, talkCheckin (stores are blocked from the cloud session).
 - Header logo (`public/img/logo.webp`) is 67px from Figma — needs a 3x export to look sharp on Retina.
 - Archive tile images (21 placeholders in `portfolio`). Source images are on Coroflot/Behance.
 - `[N]` projects delivered (hero stat), `[University name]`, résumé PDF (`person.resumeUrl`; button hidden until set),
