@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { caseStudies, caseStudyPlaceholder } from '@/data/site.js'
 import Placeholder from '@/components/Placeholder.jsx'
 import VideoSlider from '@/components/VideoSlider.jsx'
+import BrandIdentity from '@/components/BrandIdentity.jsx'
 import { ArrowRight, ArrowUpRight } from '@/components/Icons.jsx'
 import usePageTitle from '@/components/usePageTitle.js'
 import NotFound from './NotFound.jsx'
@@ -61,6 +62,8 @@ export default function CaseStudyPage() {
           {c.did.map((d) => <li key={d}>{d}</li>)}
         </ul>
       </section>
+
+      {c.brand && <BrandIdentity brand={c.brand} />}
 
       <section className="wrap case__process">
         <h2 className="h3-lg">Process</h2>

@@ -246,6 +246,7 @@ export const caseStudyPlaceholder = {
   quote: { text: '[Optional: one line from the client about the result.]', name: '[Name, title]', title: '' },
   videos: null,
   video: null,
+  brand: null,
   sources: [],
 }
 
@@ -295,21 +296,22 @@ export const caseStudies = [
   {
     slug: 'abode',
     title: 'Abode',
-    discipline: 'Product Design · Smart Home Security',
+    discipline: 'Brand Identity · Product Design · Smart Home Security',
     img: '/img/work-abode.webp',
     alt: 'Abode smart-home devices arranged on white plinths against a blue wall',
-    outcome: 'One app to run a whole smart home: I designed Abode’s iOS, Android and desktop experience so people could secure, automate and check in on their home in a few taps.',
+    outcome: 'From the logo to the app: I helped build Abode’s brand identity and designed its iOS, Android and desktop experience, so people could secure, automate and check in on their home in a few taps.',
     facts: {
       client: 'Abode Systems — DIY smart home security (US, UK, Canada)',
       timeline: '2016 – 2021 · at Zigron',
       role: 'Product designer — mobile & desktop apps',
-      scope: 'iOS and Android apps, desktop application, design system, onboarding',
+      scope: 'Logo and brand identity, iOS and Android apps, desktop application, design system',
     },
     problem: [
       'Abode set out to give people professional-grade home security without long contracts: a system they install themselves and run from their phone. Its founder had left ADT frustrated by contracts and slow service, so the product had to put customers in control.',
       'That made the app the product. One interface had to arm and disarm, stream live cameras, log every event, run automations across up to 160 Zigbee and Z-Wave devices, and work with HomeKit, Alexa and Google — on iOS, Android and the desktop — while staying calm and fast in the moment an alarm goes off.',
     ],
     did: [
+      'Helped create the logo and brand identity: one mark that joins the letter A, a roof, curtains and angel wings, with a four-colour palette, the Deck typeface and a pattern built from the mark.',
       'Designed the mobile apps around the moment that matters. The dashboard puts arm, disarm and quick actions first, with a timeline that logs every event across the home.',
       'Created the desktop application experience, for setting up and managing a whole home on a bigger screen in the same design language as mobile.',
       'Built one design system across iOS, Android and desktop, so devices, alerts and automations look and behave the same everywhere.',
@@ -325,6 +327,31 @@ export const caseStudies = [
       { value: '62→94%', label: 'Onboarding completion after the app and platform work, as reported by Zigron.' },
       { value: '4.7/5', label: 'Forbes Advisor rating; PCMag named the Smart Security Kit an Editors’ Choice.' },
     ],
+    brand: {
+      intro: 'Abode is about real security made real simple. The identity had to feel protective without feeling alarming: calm, warm and trustworthy enough to live in someone’s home.',
+      story: {
+        img: '/img/abode/abode-logo-story.webp',
+        alt: 'The letter A, plus a house roof, plus curtains, plus angel wings, equals the Abode logo mark',
+        parts: [
+          { name: 'The letter A', text: 'A is for Abode: real security made real simple.' },
+          { name: 'A roof', text: 'The roof over our heads, protecting the people and things we love.' },
+          { name: 'Curtains', text: 'Privacy: protecting what’s inside.' },
+          { name: 'Angel wings', text: 'A guardian angel that actively monitors your home.' },
+        ],
+      },
+      logos: [
+        { img: '/img/abode/abode-logo.webp', alt: 'Abode logo in full colour with the abode wordmark', caption: 'Primary logo, full colour', tone: 'light' },
+        { img: '/img/abode/abode-logo-dark.webp', alt: 'Abode logo in two tones on black with the abode wordmark', caption: 'Two-colour version for dark backgrounds', tone: 'dark' },
+      ],
+      colours: [
+        { name: 'Cloud', hex: '#FFFFFF', share: '50%' },
+        { name: 'Fog', hex: '#EFF0F0', share: '16%' },
+        { name: 'Night', hex: '#54595F', share: '16%' },
+        { name: 'Day', hex: '#6ECADE', share: '16%' },
+      ],
+      type: 'Deck in Thin, Regular and Black: a bold, modern cut that is approachable but confident.',
+      pattern: { img: '/img/abode/abode-pattern.webp', alt: 'Repeating pattern made from the Abode mark', caption: 'A repeat pattern built from the mark itself, for textiles.' },
+    },
     quote: null,
     // Shown in place of the hero image. Titles are placeholders until the real video names are added.
     videos: [
