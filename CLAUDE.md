@@ -23,12 +23,14 @@ src/App.jsx                 routes + scroll-to-#hash on navigation
 src/components/Header.jsx   glass toggle menu, scroll spy, border trail, glass CTA
 src/components/Hero.jsx     portrait, shimmer line, per-character headline, stats, org strip
 src/components/Portfolio.jsx  filterable grid (featured case studies + archive)
-src/components/ServicesList.jsx, About.jsx, HomeSections.jsx (Testimonials, Faq, Contact), Footer.jsx
+src/components/ServicesList.jsx, About.jsx, HomeSections.jsx (Testimonials, Faq, two-step Contact form), Footer.jsx
+src/components/VideoSlider.jsx   YouTube player + thumbnail strip (case studies with `videos`)
+src/components/BrandIdentity.jsx brand section: logo story, logo versions, colours, type, pattern (case studies with `brand`)
 src/pages/Home.jsx, ServicePage.jsx (/services/:slug), CaseStudyPage.jsx (/work/:slug), NotFound.jsx
 ```
 
 Routes: `/`, `/services/{brand-strategy|product-design|communication-multimedia|art-direction|ai-prototyping}`,
-`/work/{iylus|dr-iq|abode|artwork}`. Homepage sections: `#top #work #services #about #testimonials #faq #contact`.
+`/work/{iylus|dr-iq|abode|talkrx|artwork}`. Homepage sections: `#top #work #services #about #testimonials #faq #contact`.
 
 ## Conventions
 
@@ -61,10 +63,23 @@ Routes: `/`, `/services/{brand-strategy|product-design|communication-multimedia|
   Headline fades in per character (after TextEffect per="char" preset="fade"); screen readers get one plain sentence.
 - **About**: on desktop the left column is `position: sticky` (top 120px) while the experience list scrolls, then releases.
 
+## Case studies
+
+- Content lives in `caseStudies` in site.js. CaseStudyPage renders each field a study has and falls back,
+  field by field, to `caseStudyPlaceholder`. Optional fields: `videos` (replaces the hero image),
+  `video` (link button), `brand` (BrandIdentity section), `quote: null` hides the quote, `sources` list.
+- Written from Hammad's brief plus public sources (each page lists them): Dr. iQ (AT Medics), Abode
+  (incl. brand identity from the Abode brand guide), Iylus, talkRx (MTBC/CareCloud e-prescribing).
+  Only sourced facts or facts Hammad gave — keep it that way.
+- Artwork has no content yet.
+
 ## Open items (need Hammad's input)
 
-- Case study content for Iylus, Dr. iQ, Abode, Artwork (problem, role, process images, outcomes).
-  The current hammadakhawaja.com case pages contain only theme demo text — don't copy from them.
+- Process images for every case study (all placeholders), and a hero image for talkRx.
+- Dr. iQ: the "#2 UK healthcare app" result is unverified — needs a screenshot or link.
+- Abode: real titles for the four videos; confirm the 2016–2021 timeline and the Zigron-reported 62→94% onboarding figure.
+- Iylus: confirm timeline (2020–2021) and whether the app was Hammad's; any real metrics.
+- Header logo (`public/img/logo.webp`) is 67px from Figma — needs a 3x export to look sharp on Retina.
 - Archive tile images (21 placeholders in `portfolio`). Source images are on Coroflot/Behance.
 - `[N]` projects delivered (hero stat), `[University name]`, résumé PDF (`person.resumeUrl`; button hidden until set),
   other AI tools in the AI stack line, confirmed client regions in the last FAQ answer.
