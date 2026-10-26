@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { caseStudies, caseStudyPlaceholder } from '@/data/site.js'
 import Placeholder from '@/components/Placeholder.jsx'
+import VideoSlider from '@/components/VideoSlider.jsx'
 import { ArrowRight, ArrowUpRight } from '@/components/Icons.jsx'
 import usePageTitle from '@/components/usePageTitle.js'
 import NotFound from './NotFound.jsx'
@@ -36,7 +37,9 @@ export default function CaseStudyPage() {
       </section>
 
       <div className="wrap">
-        <img className="case__hero-img" src={c.img} alt={c.alt} width="800" height="800" />
+        {c.videos
+          ? <VideoSlider videos={c.videos} />
+          : <img className="case__hero-img" src={c.img} alt={c.alt} width="800" height="800" />}
         {c.video && (
           <a className="btn-outline case__video" href={c.video.href} target="_blank" rel="noopener noreferrer">
             {c.video.label}

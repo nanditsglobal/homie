@@ -244,6 +244,7 @@ export const caseStudyPlaceholder = {
     { value: '[X]', label: '[Third result]' },
   ],
   quote: { text: '[Optional: one line from the client about the result.]', name: '[Name, title]', title: '' },
+  videos: null,
   video: null,
   sources: [],
 }
@@ -325,7 +326,14 @@ export const caseStudies = [
       { value: '4.7/5', label: 'Forbes Advisor rating; PCMag named the Smart Security Kit an Editors’ Choice.' },
     ],
     quote: null,
-    video: { label: 'Watch Abode’s product videos', href: 'https://www.youtube.com/channel/UCWwTpbCiemkgw0gnc8mYGBg/videos' },
+    // Shown in place of the hero image. Titles are placeholders until the real video names are added.
+    videos: [
+      { id: 'VWVW9tNx8gk', title: 'Abode — video 1' },
+      { id: 'di0zLokz-g8', title: 'Abode — video 2' },
+      { id: 'Qg6LiR-2bmE', title: 'Abode — video 3' },
+      { id: '1JM9ZI_4sRU', title: 'Abode — video 4' },
+    ],
+    video: { label: 'More Abode videos on YouTube', href: 'https://www.youtube.com/channel/UCWwTpbCiemkgw0gnc8mYGBg/videos' },
     sources: [
       { label: 'Abode on the App Store', href: 'https://apps.apple.com/us/app/abode/id828260682' },
       { label: 'Abode case study — Zigron', href: 'https://zigron.com/abode-case-study/' },
