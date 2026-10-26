@@ -26,7 +26,7 @@ export const nav = [
 ]
 
 export const hero = {
-  location: ['Based in Islamabad · working with clients', 'in the UK and worldwide'],
+  location: ['Based in Islamabad', 'working with clients', 'in the UK and worldwide'],
   eyebrow: 'Creative Head | Brand strategist | ux expert',
   // Each line fades in per character; `serif` marks the italic accent word
   lines: [

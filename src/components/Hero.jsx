@@ -43,12 +43,6 @@ export default function Hero() {
       <div className="hero__content">
         <section id="top" className="hero__main">
           <div className="hero__copy">
-            <p className="hero__location rise">
-              <Globe />
-              {/* Text shimmer (after the TextShimmer component) */}
-              <span className="shimmer">{hero.location[0]}<br />{hero.location[1]}</span>
-            </p>
-
             <h1 className="hero__title rise d1">
               <span className="hero__eyebrow">{hero.eyebrow}</span>
               <CharFadeHeadline lines={hero.lines} />
@@ -80,7 +74,16 @@ export default function Hero() {
         </section>
 
         <div className="hero__foot rise d5">
-          <span className="hero__watermark" aria-hidden="true">HAK</span>
+          <div className="hero__sign">
+            <span className="hero__watermark" aria-hidden="true">HAK</span>
+            <p className="hero__location">
+              <Globe size={22} />
+              {/* Text shimmer (after the TextShimmer component) */}
+              <span className="shimmer">
+                {hero.location.map((line, i) => <span key={line}>{i > 0 && <br />}{line}</span>)}
+              </span>
+            </p>
+          </div>
           <section aria-label="Organisations" className="hero__orgs">
             <span>Led creative at</span>
             <ul>{hero.orgs.map((o) => <li key={o}>{o}</li>)}</ul>

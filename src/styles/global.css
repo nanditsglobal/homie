@@ -279,12 +279,14 @@ section[id] { scroll-margin-top: 96px; }
 }
 .hero__copy { flex: 0 1 640px; min-width: 0; }
 
+/* Bottom-left signature: HAK watermark, then globe | location */
+.hero__sign { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; }
 .hero__location {
-  display: flex; align-items: center; gap: 10px; width: fit-content;
-  padding-top: 13px; border-top: 1px solid rgba(255,255,255,0.12);
-  font-size: 13px; line-height: 1.45; color: rgba(255,255,255,0.64);
+  display: flex; align-items: center; gap: 20px;
+  font-size: 17px; line-height: 1.45; color: rgba(255,255,255,0.64);
 }
-.hero__location svg { flex: none; }
+.hero__location svg { flex: none; color: rgba(255,255,255,0.72); }
+.hero__location .shimmer { padding: 6px 0 6px 20px; border-left: 1px solid rgba(255,255,255,0.12); }
 /* Text shimmer: a soft highlight sweeps across the muted text */
 .shimmer {
   color: transparent;
@@ -298,7 +300,7 @@ section[id] { scroll-margin-top: 96px; }
 @keyframes shimmer { from { background-position: 100% center, 0 0; } to { background-position: 0% center, 0 0; } }
 
 .hero__title {
-  margin-top: 28px; font-family: var(--f-display); font-weight: 700;
+  margin-top: 16px; font-family: var(--f-display); font-weight: 700;
   font-size: clamp(40px, 4.4vw, 64px); line-height: 0.96; letter-spacing: -0.04em;
   color: #fff; text-shadow: 0 6px 40px rgba(0,0,0,0.45);
 }
@@ -360,6 +362,7 @@ section[id] { scroll-margin-top: 96px; }
   .hero__scrim { background: linear-gradient(180deg, rgba(10,3,0,0.55) 0%, rgba(10,3,0,0.8) 55%, rgba(10,3,0,0.95) 100%); }
 }
 @media (max-width: 640px) {
+  .hero__location { font-size: 15px; }
   .hero__orgs { align-items: flex-start; }
   .hero__orgs ul { justify-content: flex-start; }
 }
