@@ -251,7 +251,47 @@ export const caseStudyPlaceholder = {
 }
 
 export const caseStudies = [
-  { slug: 'iylus', title: 'Iylus', discipline: 'Brand Strategy & Visual Identity', img: '/img/work-iylus.webp', alt: 'Iylus logo above two black Iylus home devices' },
+  {
+    slug: 'iylus',
+    title: 'Iylus',
+    discipline: 'Brand Strategy & Visual Identity · Smart Security',
+    img: '/img/work-iylus.webp',
+    alt: 'Iylus logo above two black Iylus home devices',
+    outcome: 'Pakistan’s first complete smart security brand: I shaped Iylus’s strategy and identity so cameras, locks and a 24/7 monitoring team read as one promise — real protection, not just recording.',
+    facts: {
+      client: 'Iylus — smart home & business security, Islamabad, Pakistan',
+      timeline: '2020 – 2021 · at Zigron',
+      role: 'Brand strategist & lead designer',
+      scope: 'Brand strategy, visual identity, app experience, launch communication',
+    },
+    problem: [
+      'Pakistan had no shortage of camera providers, yet people still didn’t feel safe. Most products worked like CCTV: they recorded what happened, but nobody was watching and nothing happened next.',
+      'Iylus set out to change that, with smart cameras, a door lock and a video doorbell connected to a 24/7 monitoring team. The brand had to explain a new category — protection, not just recording — to homes, apartments, offices and shops.',
+    ],
+    did: [
+      'Positioned Iylus around protection, not hardware: smart surveillance, 24/7 alarm monitoring and instant response as one promise.',
+      'Built the visual identity: a logo and system that works on the devices themselves, in the app and across launch communication.',
+      'Made one brand experience across the range: indoor and outdoor cameras, smart door lock, video doorbell and an in-app panic button, all managed from one app.',
+    ],
+    process: [
+      { label: 'strategy / positioning', caption: 'Strategy: positioning Iylus against record-only CCTV.' },
+      { label: 'logo routes / final mark', caption: 'Identity: logo routes and the final mark.' },
+      { label: 'devices / app / launch', caption: 'Application: the brand on devices, in the app and at launch.' },
+    ],
+    results: [
+      { value: '1st', label: 'Complete smart home and business security solution in Pakistan, as launched.' },
+      { value: '4', label: 'Connected products under one brand and one app: indoor and outdoor cameras, door lock and video doorbell.' },
+      { value: '24/7', label: 'Professional monitoring and instant response, built into the brand promise.' },
+    ],
+    quote: null,
+    sources: [
+      { label: 'Iylus case study — Zigron', href: 'https://zigron.com/iylus-case-study/' },
+      { label: 'Iylus launches complete security solution in Pakistan — BlogPakistan', href: 'https://blogpakistan.pk/iylus-launches-complete-security-solution-in-pakistan/' },
+      { label: 'Iylus on LinkedIn', href: 'https://www.linkedin.com/company/iylus/' },
+      { label: 'Iylus on Instagram', href: 'https://www.instagram.com/iylusofficial/' },
+      { label: 'Iylus iOS app', href: 'https://iylus-ios.soft112.com/' },
+    ],
+  },
   {
     slug: 'dr-iq',
     title: 'Dr. iQ',
