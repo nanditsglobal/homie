@@ -40,7 +40,9 @@ export default function CaseStudyPage() {
       <div className="wrap">
         {c.videos
           ? <VideoSlider videos={c.videos} />
-          : <img className="case__hero-img" src={c.img} alt={c.alt} width="800" height="800" />}
+          : c.img
+            ? <img className="case__hero-img" src={c.img} alt={c.alt} width="800" height="800" />
+            : <Placeholder label={`IMAGE — ${c.imageLabel || 'hero image'}`} ratio="16 / 9" />}
         {c.video && (
           <a className="btn-outline case__video" href={c.video.href} target="_blank" rel="noopener noreferrer">
             {c.video.label}
