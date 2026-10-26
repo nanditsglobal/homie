@@ -119,9 +119,19 @@ export function Contact() {
           </dl>
         </div>
 
-        <form className="enquiry" onSubmit={submit} aria-labelledby="enquiry-step">
+        <form className="enquiry" onSubmit={submit} aria-labelledby="enquiry-step enquiry-title">
           <div className="enquiry__steps">
-            <p id="enquiry-step" className="label" ref={stepRef} tabIndex={-1}>Step {picked ? 2 : 1} of 2 — {picked ? 'Your project' : 'What do you need help with?'}</p>
+            <div className="enquiry__head">
+              <div className="enquiry__head-text">
+                <p id="enquiry-step" className="label" ref={stepRef} tabIndex={-1}>Step {picked ? 2 : 1} of 2</p>
+                <h3 id="enquiry-title" className="enquiry__title">
+                  {picked
+                    ? <><span className="enquiry__service-no">{picked.no}</span> {picked.title}</>
+                    : 'What do you need help with?'}
+                </h3>
+              </div>
+              {picked && <button type="button" className="enquiry__change" onClick={() => pickService('')}>Change</button>}
+            </div>
             <span className="enquiry__progress" aria-hidden="true"><span style={{ width: picked ? '100%' : '50%' }} /></span>
           </div>
 
@@ -139,12 +149,6 @@ export function Contact() {
 
           {picked && (
             <>
-              <div className="enquiry__picked">
-                <span className="enquiry__service-no">{picked.no}</span>
-                <span className="enquiry__service-title">{picked.title}</span>
-                <button type="button" className="enquiry__change" onClick={() => pickService('')}>Change</button>
-              </div>
-
               <fieldset className="enquiry__group">
                 <legend className="label">Which parts? <span className="enquiry__hint">optional</span></legend>
                 <div className="filters">

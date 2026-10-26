@@ -474,8 +474,13 @@ section[id] { scroll-margin-top: 96px; }
 .enquiry .chip { display: inline-flex; align-items: center; cursor: pointer; }
 .enquiry .chip:has(:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-.enquiry__steps { display: flex; flex-direction: column; gap: 12px; }
-.enquiry__steps .label { margin-bottom: 0; outline: none; }
+.enquiry__steps { display: flex; flex-direction: column; gap: 20px; }
+/* Same head on both steps: step count + title (the question, then the chosen service), Change on the right */
+.enquiry__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.enquiry__head-text { min-width: 0; }
+.enquiry__head .label { outline: none; }
+.enquiry__title { font-family: var(--f-display); font-weight: 700; font-size: clamp(20px, 1.9vw, 24px); line-height: 1.2; letter-spacing: -0.01em; }
+.enquiry__title .enquiry__service-no { margin-right: 6px; font-size: 14px; vertical-align: 0.2em; color: var(--accent); }
 .enquiry__progress { display: block; height: 2px; border-radius: 999px; background: var(--line-strong); overflow: hidden; }
 .enquiry__progress span { display: block; height: 100%; background: var(--accent); transition: width .5s var(--ease); }
 
@@ -494,14 +499,9 @@ section[id] { scroll-margin-top: 96px; }
 .enquiry__service-no { font-family: var(--f-mono); font-size: 12px; color: var(--faint); }
 .enquiry__service-title { font-weight: 700; font-size: 17px; line-height: 1.35; }
 
-/* Step 2: the chosen service, with a way back */
-.enquiry__picked {
-  display: flex; align-items: baseline; gap: 16px; padding: 15px 16px 15px 20px;
-  border: 1px solid var(--accent); border-radius: 12px; background: rgba(255, 106, 61, 0.08);
-}
-.enquiry__picked .enquiry__service-no { color: var(--accent); }
+/* Step 2: back to step 1 */
 .enquiry__change {
-  margin-left: auto; align-self: center; min-height: 36px; padding: 6px 14px; border-radius: 999px;
+  flex-shrink: 0; min-height: 40px; padding: 8px 16px; border-radius: 999px;
   border: 1px solid var(--line-dash); background: transparent; color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
 }
 .enquiry__change:hover { border-color: var(--ink-soft); }
