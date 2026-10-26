@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { contact, faq, person, quotes, services, social } from '@/data/site.js'
 import { ArrowUpRight } from './Icons.jsx'
 
@@ -49,7 +49,7 @@ export function Faq() {
 const EMPTY = { name: '', email: '', company: '', timeline: '', message: '' }
 
 /**
- * Project enquiry: pick one of the five services, then the parts of it you need.
+ * Project enquiry in two steps: pick one of the five services, then the parts of it you need and the brief.
  * No backend — submitting opens the visitor's email app with the brief filled in.
  */
 export function Contact() {
@@ -57,10 +57,20 @@ export function Contact() {
   const [needs, setNeeds] = useState([])
   const [form, setForm] = useState(EMPTY)
   const [sent, setSent] = useState(false)
+  const stepRef = useRef(null)
   const picked = services.find((s) => s.slug === service)
 
   const set = (key) => (e) => setForm({ ...form, [key]: e.target.value })
-  const pickService = (slug) => { setService(slug); setNeeds([]); setSent(false) }
+  const pickService = (slug) => {
+    setService(slug)
+    setNeeds([])
+    setSent(false)
+    // Bring the new step into view below the fixed header, then hand it focus
+    requestAnimationFrame(() => {
+      stepRef.current?.closest('form').scrollIntoView({ block: 'start' })
+      stepRef.current?.focus({ preventScroll: true })
+    })
+  }
   const toggleNeed = (n) => setNeeds(needs.includes(n) ? needs.filter((x) => x !== n) : [...needs, n])
 
   const submit = (e) => {
@@ -109,81 +119,93 @@ export function Contact() {
           </dl>
         </div>
 
-        <form className="enquiry" onSubmit={submit}>
-          <fieldset className="enquiry__group">
-            <legend className="label">01 — What do you need help with?</legend>
+        <form className="enquiry" onSubmit={submit} aria-labelledby="enquiry-step">
+          <div className="enquiry__steps">
+            <p id="enquiry-step" className="label" ref={stepRef} tabIndex={-1}>Step {picked ? 2 : 1} of 2 — {picked ? 'Your project' : 'What do you need help with?'}</p>
+            <span className="enquiry__progress" aria-hidden="true"><span style={{ width: picked ? '100%' : '50%' }} /></span>
+          </div>
+
+          {!picked && (
             <div className="enquiry__services">
               {services.map((s) => (
-                <label key={s.slug} className={`enquiry__service ${service === s.slug ? 'is-on' : ''}`}>
-                  <input type="radio" name="service" value={s.slug} required checked={service === s.slug} onChange={() => pickService(s.slug)} />
+                <button key={s.slug} type="button" className="enquiry__service" onClick={() => pickService(s.slug)}>
                   <span className="enquiry__service-no">{s.no}</span>
                   <span className="enquiry__service-title">{s.title}</span>
-                </label>
+                  <ArrowUpRight size={16} strokeWidth={2} />
+                </button>
               ))}
             </div>
-          </fieldset>
-
-          {picked && (
-            <fieldset className="enquiry__group">
-              <legend className="label">02 — Which parts? <span className="enquiry__hint">optional</span></legend>
-              <div className="filters">
-                {picked.points.map((n) => (
-                  <label key={n} className={`chip ${needs.includes(n) ? 'is-on' : ''}`}>
-                    <input type="checkbox" checked={needs.includes(n)} onChange={() => toggleNeed(n)} />
-                    {n}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
           )}
 
-          <fieldset className="enquiry__group">
-            <legend className="label">{picked ? '03' : '02'} — About you</legend>
-            <div className="enquiry__fields">
-              <label className="field">
-                <span className="field__label">Name</span>
-                <input type="text" name="name" autoComplete="name" required value={form.name} onChange={set('name')} />
-              </label>
-              <label className="field">
-                <span className="field__label">Email</span>
-                <input type="email" name="email" autoComplete="email" required value={form.email} onChange={set('email')} />
-              </label>
-              <label className="field">
-                <span className="field__label">Company or website <span className="enquiry__hint">optional</span></span>
-                <input type="text" name="company" autoComplete="organization" value={form.company} onChange={set('company')} />
-              </label>
-              <label className="field">
-                <span className="field__label">Timeline <span className="enquiry__hint">optional</span></span>
-                <select name="timeline" value={form.timeline} onChange={set('timeline')}>
-                  <option value="">Select…</option>
-                  {contact.timelines.map((t) => <option key={t}>{t}</option>)}
-                </select>
-              </label>
-              <label className="field field--wide">
-                <span className="field__label">Your project</span>
-                <textarea
-                  name="message"
-                  rows={5}
-                  required
-                  value={form.message}
-                  onChange={set('message')}
-                  placeholder={picked ? contact.prompts[picked.slug] : 'Pick a service above and tell me a little about the project.'}
-                />
-              </label>
-            </div>
-          </fieldset>
+          {picked && (
+            <>
+              <div className="enquiry__picked">
+                <span className="enquiry__service-no">{picked.no}</span>
+                <span className="enquiry__service-title">{picked.title}</span>
+                <button type="button" className="enquiry__change" onClick={() => pickService('')}>Change</button>
+              </div>
 
-          <div className="enquiry__submit">
-            <button type="submit" className="btn-accent">
-              Send enquiry
-              <ArrowUpRight size={20} strokeWidth={2} />
-            </button>
-            <p className="enquiry__note muted" role="status">
-              {sent
-                ? <>Your email app should open with this filled in. If it didn’t, email <a href={`mailto:${person.email}`}>{person.email}</a>.</>
-                : 'Opens your email app with your answers filled in.'}
-            </p>
-          </div>
+              <fieldset className="enquiry__group">
+                <legend className="label">Which parts? <span className="enquiry__hint">optional</span></legend>
+                <div className="filters">
+                  {picked.points.map((n) => (
+                    <label key={n} className={`chip ${needs.includes(n) ? 'is-on' : ''}`}>
+                      <input type="checkbox" checked={needs.includes(n)} onChange={() => toggleNeed(n)} />
+                      {n}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+
+              <fieldset className="enquiry__group">
+                <legend className="label">About you</legend>
+                <div className="enquiry__fields">
+                  <label className="field">
+                    <span className="field__label">Name</span>
+                    <input type="text" name="name" autoComplete="name" required value={form.name} onChange={set('name')} />
+                  </label>
+                  <label className="field">
+                    <span className="field__label">Email</span>
+                    <input type="email" name="email" autoComplete="email" required value={form.email} onChange={set('email')} />
+                  </label>
+                  <label className="field">
+                    <span className="field__label">Company or website <span className="enquiry__hint">optional</span></span>
+                    <input type="text" name="company" autoComplete="organization" value={form.company} onChange={set('company')} />
+                  </label>
+                  <label className="field">
+                    <span className="field__label">Timeline <span className="enquiry__hint">optional</span></span>
+                    <select name="timeline" value={form.timeline} onChange={set('timeline')}>
+                      <option value="">Select…</option>
+                      {contact.timelines.map((t) => <option key={t}>{t}</option>)}
+                    </select>
+                  </label>
+                  <label className="field field--wide">
+                    <span className="field__label">Your project</span>
+                    <textarea
+                      name="message"
+                      rows={5}
+                      required
+                      value={form.message}
+                      onChange={set('message')}
+                      placeholder={contact.prompts[picked.slug]}
+                    />
+                  </label>
+                </div>
+              </fieldset>
+
+              <div className="enquiry__submit">
+                <button type="submit" className="btn-accent">
+                  Send enquiry
+                  <ArrowUpRight size={20} strokeWidth={2} />
+                </button>
+                <p className="enquiry__note muted" role="status">
+                  {sent
+                    ? <>Your email app should open with this filled in. If it didn’t, email <a href={`mailto:${person.email}`}>{person.email}</a>.</>
+                    : 'Opens your email app with your answers filled in.'}
+                </p>
+              </div>
+            </>
+          )}
         </form>
       </div>
     </section>

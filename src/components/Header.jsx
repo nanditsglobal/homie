@@ -92,10 +92,16 @@ export default function Header() {
   const hoverRect = hovered ? rectOf(linkRefs.current[hovered]) : null
   const activeRect = active ? rectOf(linkRefs.current[active]) : null
 
+  const [first, ...others] = person.name.split(' ')
+  const rest = others.join(' ')
+
   return (
     <header ref={headerRef} className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="site-header__inner">
-        <Link to="/" className="site-header__brand">{person.name}</Link>
+        <Link to="/" className="site-header__brand" aria-label={`${person.name} — home`}>
+          <img className="site-header__logo" src="/img/logo.webp" alt="" width="67" height="67" />
+          <span className="site-header__name">{first}<br />{rest}</span>
+        </Link>
 
         <nav
           aria-label="Main"
