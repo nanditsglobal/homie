@@ -244,6 +244,7 @@ export const caseStudyPlaceholder = {
     { value: '[X]', label: '[Third result]' },
   ],
   quote: { text: '[Optional: one line from the client about the result.]', name: '[Name, title]', title: '' },
+  video: null,
   sources: [],
 }
 
@@ -290,7 +291,49 @@ export const caseStudies = [
       { label: 'What is Dr. iQ? — Dr. iQ support', href: 'https://support.dr-iq.com/hc/en-gb/articles/360004570997-What-is-Dr-iQ' },
     ],
   },
-  { slug: 'abode', title: 'Abode', discipline: 'Marketing site design & build', img: '/img/work-abode.webp', alt: 'Abode smart-home devices arranged on white plinths against a blue wall' },
+  {
+    slug: 'abode',
+    title: 'Abode',
+    discipline: 'Product Design · Smart Home Security',
+    img: '/img/work-abode.webp',
+    alt: 'Abode smart-home devices arranged on white plinths against a blue wall',
+    outcome: 'One app to run a whole smart home: I designed Abode’s iOS, Android and desktop experience so people could secure, automate and check in on their home in a few taps.',
+    facts: {
+      client: 'Abode Systems — DIY smart home security (US, UK, Canada)',
+      timeline: '2016 – 2021 · at Zigron',
+      role: 'Product designer — mobile & desktop apps',
+      scope: 'iOS and Android apps, desktop application, design system, onboarding',
+    },
+    problem: [
+      'Abode set out to give people professional-grade home security without long contracts: a system they install themselves and run from their phone. Its founder had left ADT frustrated by contracts and slow service, so the product had to put customers in control.',
+      'That made the app the product. One interface had to arm and disarm, stream live cameras, log every event, run automations across up to 160 Zigbee and Z-Wave devices, and work with HomeKit, Alexa and Google — on iOS, Android and the desktop — while staying calm and fast in the moment an alarm goes off.',
+    ],
+    did: [
+      'Designed the mobile apps around the moment that matters. The dashboard puts arm, disarm and quick actions first, with a timeline that logs every event across the home.',
+      'Created the desktop application experience, for setting up and managing a whole home on a bigger screen in the same design language as mobile.',
+      'Built one design system across iOS, Android and desktop, so devices, alerts and automations look and behave the same everywhere.',
+      'Guided self-install from the app, so a new customer can set up their own system without a technician.',
+    ],
+    process: [
+      { label: 'flows / research', caption: 'Scoping: device, alarm and setup journeys, and where people got stuck.' },
+      { label: 'mobile app screens', caption: 'Crafting: dashboard, timeline and device screens for iOS and Android.' },
+      { label: 'desktop app', caption: 'Scaling: the same system extended to the desktop application.' },
+    ],
+    results: [
+      { value: '4.2★', label: 'Average rating from about 4,900 App Store reviews.' },
+      { value: '62→94%', label: 'Onboarding completion after the app and platform work, as reported by Zigron.' },
+      { value: '4.7/5', label: 'Forbes Advisor rating; PCMag named the Smart Security Kit an Editors’ Choice.' },
+    ],
+    quote: null,
+    video: { label: 'Watch Abode’s product videos', href: 'https://www.youtube.com/channel/UCWwTpbCiemkgw0gnc8mYGBg/videos' },
+    sources: [
+      { label: 'Abode on the App Store', href: 'https://apps.apple.com/us/app/abode/id828260682' },
+      { label: 'Abode case study — Zigron', href: 'https://zigron.com/abode-case-study/' },
+      { label: 'Abode home security review — Forbes Advisor', href: 'https://www.forbes.com/home-improvement/home-security/abode-home-security-review/' },
+      { label: 'Our beginnings — Abode', href: 'https://goabode.com/about-us' },
+      { label: 'Nice S.p.A. majority investment — Business Wire', href: 'https://www.businesswire.com/news/home/20180417005302/en/abode-systems-Receives-Majority-Stake-Investment-from-Italian-based-Home-Automation-Giant-Nice-S.p.A.' },
+    ],
+  },
   { slug: 'artwork', title: 'Artwork', discipline: 'Fine art & illustration', img: '/img/work-artwork.webp', alt: 'Monochrome digital portrait painting, signed by Hammad A. Khawaja' },
 ]
 

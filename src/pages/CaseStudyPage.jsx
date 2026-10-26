@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { caseStudies, caseStudyPlaceholder } from '@/data/site.js'
 import Placeholder from '@/components/Placeholder.jsx'
-import { ArrowRight } from '@/components/Icons.jsx'
+import { ArrowRight, ArrowUpRight } from '@/components/Icons.jsx'
 import usePageTitle from '@/components/usePageTitle.js'
 import NotFound from './NotFound.jsx'
 
@@ -37,6 +37,12 @@ export default function CaseStudyPage() {
 
       <div className="wrap">
         <img className="case__hero-img" src={c.img} alt={c.alt} width="800" height="800" />
+        {c.video && (
+          <a className="btn-outline case__video" href={c.video.href} target="_blank" rel="noopener noreferrer">
+            {c.video.label}
+            <ArrowUpRight size={16} />
+          </a>
+        )}
       </div>
 
       <section className="wrap case__split">
@@ -73,10 +79,12 @@ export default function CaseStudyPage() {
               <div key={r.label}><p className="case__result-value">{r.value}</p><p className="muted">{r.label}</p></div>
             ))}
           </div>
-          <blockquote className="case__quote">
-            “{c.quote.text}”
-            <footer className="muted">{c.quote.name}{c.quote.title && `, ${c.quote.title}`}</footer>
-          </blockquote>
+          {c.quote && (
+            <blockquote className="case__quote">
+              “{c.quote.text}”
+              <footer className="muted">{c.quote.name}{c.quote.title && `, ${c.quote.title}`}</footer>
+            </blockquote>
+          )}
         </div>
         {c.sources.length > 0 && (
           <div className="case__sources">
