@@ -22,7 +22,7 @@ export default function ServicePage() {
         </nav>
         <div className="page-hero__grid">
           <div className="page-hero__copy">
-            <p className="eyebrow">Service {s.no}{s.isNew ? ' · New' : ''}</p>
+            <p className="eyebrow">Service {s.no}</p>
             <h1 className="h1">{s.title}</h1>
             <p className="lede">{s.intro}</p>
           </div>

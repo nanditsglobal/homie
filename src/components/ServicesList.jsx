@@ -11,11 +11,8 @@ export default function ServicesList() {
           {services.map((s) => (
             <Link key={s.slug} to={`/services/${s.slug}`} className="service-row">
               <div className="service-row__name">
-                <span className={`service-row__no ${s.isNew ? 'is-new' : ''}`}>{s.no}</span>
-                <div>
-                  <h3>{s.title}</h3>
-                  {s.isNew && <span className="badge-new">New</span>}
-                </div>
+                <span className="service-row__no">{s.no}</span>
+                <h3>{s.title}</h3>
               </div>
               <p className="muted">{s.summary}</p>
               <p className="service-row__points">

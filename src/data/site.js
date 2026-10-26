@@ -196,7 +196,6 @@ export const services = [
   {
     slug: 'ai-prototyping',
     no: '05',
-    isNew: true,
     title: 'AI Prototyping & Enablement',
     summary: 'Fully functional prototypes built with AI in days, not static mockups — and the policies, standards and skills that help whole teams use Claude and ChatGPT well.',
     points: ['Vibe-coded working prototypes', 'AI-to-Figma & AI-to-web workflows', 'Team AI adoption & Claude skills'],
