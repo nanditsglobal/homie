@@ -223,10 +223,73 @@ export const services = [
   },
 ]
 
-// ---------- Case studies (template — every field in [brackets] needs real content) ----------
+// ---------- Case studies ----------
+// A study shows its own content where it has it; any part it leaves out shows `caseStudyPlaceholder`.
+export const caseStudyPlaceholder = {
+  outcome: '[One sentence: the outcome you achieved for the client]',
+  facts: { client: '[Client / industry]', timeline: '[Month Year – Month Year]', role: '[Your actual role]', scope: '[Strategy, identity, guidelines…]' },
+  problem: [
+    '[What was wrong before you arrived? Who was the audience, and what was getting in the way? 2–3 sentences, specific to this client.]',
+    '[Constraints you worked within — budget, deadline, legacy assets, stakeholders.]',
+  ],
+  did: ['[Decision 1 you led, and why]', '[Decision 2 you led, and why]', '[Decision 3 you led, and why]'],
+  process: [
+    { label: 'research / moodboard', caption: '[Caption: what this shows]' },
+    { label: 'sketches / routes', caption: '[Caption: what this shows]' },
+    { label: 'final system / guidelines', caption: '[Caption: what this shows]' },
+  ],
+  results: [
+    { value: '[X]', label: '[Measurable result — or a concrete deliverable count]' },
+    { value: '[X]', label: '[Second result]' },
+    { value: '[X]', label: '[Third result]' },
+  ],
+  quote: { text: '[Optional: one line from the client about the result.]', name: '[Name, title]', title: '' },
+  sources: [],
+}
+
 export const caseStudies = [
   { slug: 'iylus', title: 'Iylus', discipline: 'Brand Strategy & Visual Identity', img: '/img/work-iylus.webp', alt: 'Iylus logo above two black Iylus home devices' },
-  { slug: 'dr-iq', title: 'Dr. iQ', discipline: 'Product Design & Marketing', img: '/img/work-driq.webp', alt: 'Dr. iQ app dashboard on a phone, showing appointment summary and a radial menu' },
+  {
+    slug: 'dr-iq',
+    title: 'Dr. iQ',
+    discipline: 'UX & Product Design · Healthcare',
+    img: '/img/work-driq.webp',
+    alt: 'Dr. iQ app dashboard on a phone, showing appointment summary and a radial menu',
+    outcome: 'A GP practice in your pocket: one trusted NHS app where AT Medics patients book, consult and manage their care without waiting on the phone.',
+    facts: {
+      client: 'AT Medics — NHS GP practices across London',
+      timeline: 'Apr 2021 – Aug 2023',
+      role: 'UX expert & product designer',
+      scope: 'Product UX, UI and design system, brand expression, app-store presence',
+    },
+    problem: [
+      'AT Medics ran 49 GP practices across London, caring for around 370,000 NHS patients. After the pandemic, demand for remote care outgrew the phone lines: patients waited on hold for routine requests, and practice teams spent their days on calls an app could handle.',
+      'Dr. iQ had to carry the whole practice: appointments, video and audio consultations, repeat prescriptions, messaging, medical records and a symptom checker built on NHS clinical pathways. It had to work for patients of every age and confidence level, meet NHS clinical and data standards, and feel safe enough to share health information with.',
+    ],
+    did: [
+      'Scoped the real problem first. I mapped the requests that filled the phone lines — appointments, prescriptions, sick notes, everyday questions — and made them the front door of the app.',
+      'Designed one calm home for every service. A single dashboard with an appointment summary and a radial menu puts booking, consultations, prescriptions and messages one tap away.',
+      'Built trust into every screen. Plain NHS-style language, clear status at every step and one consistent design system, so patients always knew what happens next and clinicians could rely on what arrived.',
+      'Stayed hands-on through build. I worked alongside At Tech’s developers on iOS and Android, refining flows from app-store reviews and practice feedback.',
+    ],
+    process: [
+      { label: 'journey map / research', caption: 'Scoping: mapping patient and practice journeys to find what was filling the phone lines.' },
+      { label: 'key screens / flows', caption: 'Crafting: dashboard, consultation and prescription flows on one design system.' },
+      { label: 'app store screens', caption: 'Building trust: shipped and refined with developers on iOS and Android.' },
+    ],
+    results: [
+      { value: '4.0★', label: 'Average rating from around 12,400 App Store reviews in the UK.' },
+      { value: '74%', label: 'of surveyed patients in Croydon practices had used Dr. iQ; 91% knew about it (Healthwatch Croydon, 2021).' },
+      { value: '#2', label: 'Healthcare app in the UK by app-store ranking. [Confirm with a screenshot or link before launch.]' },
+    ],
+    quote: { text: 'A perfect example of a UI-UX and creative head, and he brings all the abilities to the table.', name: 'Naveed Ramzan', title: 'Development Head, At Tech' },
+    sources: [
+      { label: 'Dr. iQ on the App Store (ratings via AppFollow)', href: 'https://apps.appfollow.io/ios/dr-iq/1345802108?country=gb' },
+      { label: 'Healthwatch Croydon patient survey, 2021', href: 'https://nds.healthwatch.co.uk/sites/default/files/reports_library/20B411~1.PDF' },
+      { label: 'Operose Health acquires AT Medics — HealthInvestor', href: 'https://healthinvestor.co.uk/deals/operose-health-acquires-at-medics/' },
+      { label: 'What is Dr. iQ? — Dr. iQ support', href: 'https://support.dr-iq.com/hc/en-gb/articles/360004570997-What-is-Dr-iQ' },
+    ],
+  },
   { slug: 'abode', title: 'Abode', discipline: 'Marketing site design & build', img: '/img/work-abode.webp', alt: 'Abode smart-home devices arranged on white plinths against a blue wall' },
   { slug: 'artwork', title: 'Artwork', discipline: 'Fine art & illustration', img: '/img/work-artwork.webp', alt: 'Monochrome digital portrait painting, signed by Hammad A. Khawaja' },
 ]
@@ -242,7 +305,7 @@ export const about = {
   experience: [
     { role: 'Head of Creatives', company: '31G', dates: 'Sep 2023 – Present' },
     { role: 'Co-founder', company: 'NANDITS — design studio', dates: 'Mar 2010 – Present' },
-    { role: 'Creative Manager, UI/UX', company: 'At Tech | At Medicis', dates: 'Apr 2021 – Aug 2023' },
+    { role: 'Creative Manager, UI/UX', company: 'At Tech | AT Medics', dates: 'Apr 2021 – Aug 2023' },
     { role: 'Creative Head', company: 'Zigron, Inc.', dates: 'Jan 2016 – Mar 2021' },
     { role: 'Lead UI/UX & Multimedia', company: 'CareCloud', dates: 'Jun 2010 – Dec 2015' },
     { role: 'Creative Design Consultant', company: 'UNDP', dates: 'Aug 2013 – Mar 2015' },
